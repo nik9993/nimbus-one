@@ -1,0 +1,1 @@
+#Triple double quotes are for docstrings and raw string literals. Double double quotes will be used for string that are used for interpolation or that are natural language messages. Single double quotes will be used for small symbol-like strings.
