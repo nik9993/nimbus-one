@@ -7,6 +7,6 @@
 # But for now Follow These Rules EVERYWHERE you Code!
 #
 # String Quotes:
-# 1. Triple double quotes are for docstrings and raw string literals. 
+# 1. Single single quotes will be used for small symbol-like strings.
 # 2. Double double quotes will be used for string that are used for interpolation or that are natural language messages.
-# 3. Single double quotes will be used for small symbol-like strings.
+# 3. Triple double quotes are for docstrings and raw string literals. 
