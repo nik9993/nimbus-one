@@ -19,9 +19,9 @@ class PollingServer(threading.Thread):
     def run(self):
         try:
             print("Hello, World!")
-			c = Client()
-			c.start()
-			threads.append(c)
+            c = Client()
+            c.start()
+            threads.append(c)
 			
         except KeyboardInterrupt:
             print ("^C received, shutting down the polling server")
