@@ -63,8 +63,8 @@ client_socket.connect((host,port))
 message = input(" -> ")
          
 try:
-    client_socket.send(message.encode())
-    data = client_socket.recv(size).decode()
+    client_socket.send(message.encode("cp037"))
+    data = client_socket.recv(size).decode("cp037")
              
     print ('Received from server: ' + data)
 
