@@ -35,4 +35,3 @@ login_unsuccessful_reason = {'server_error' : 0,
 create_account_unsuccessful = {'server_error' : 0,
                          'duplicate_username' : 1}
 
-print(create_account_unsuccessful['server_error'])
