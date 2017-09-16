@@ -37,7 +37,6 @@ class PollingServer(threading.Thread):
 
     def run(self):
         self.open_socket()
-        self.poll_sock.listen(1)
         try:
             while 1:
                 conn = self.poll_sock.accept()
