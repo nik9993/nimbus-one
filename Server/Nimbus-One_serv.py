@@ -56,6 +56,6 @@ PROG_NAME   = "Nimbus One Server"
 #*           the threads on the server
 
 #Starting Polling Server
-PollServ = PollingServer(80)
+PollServ = PollingServer(5050)
 PollServ.start()
 

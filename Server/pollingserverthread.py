@@ -16,34 +16,31 @@ class PollingServer(threading.Thread):
     """This Thread is the Main Polling Thread of the Server"""
     def __init__(self, port):
         threading.Thread.__init__(self)
+        self.poll_sock = None;
         self.port_number = port
-        self.host = 'localhost'
+        self.host = ''
 
     def open_socket(self):
         """Function called once a clients connects to the host on correct socket."""
         try:
-            self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            print("Binding host: " + self.host + " Port: " + str(self.port_number))
-            self.server.bind((self.host, self.port_number))
-            self.server.listen(5)
+            self.poll_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            self.poll_sock.bind((self.host, self.port_number))
+            self.poll_sock.listen(5)
             print("Polling Server Listening for connection...")
         except socket.error as err:
-            if self.server:
-                self.server.close()
+            if self.poll_sock:
+                self.poll_sock.close()
             print("Could not open Server Socket because of error: " + str(err))
             print("Please try again")
             sys.exit(1)
-            return
+        return
 
     def run(self):
-        poll_sock = self.open_socket()
-        poll_sock.bind((host, port_number))
-    
-        poll_sock.listen(1)
+        self.open_socket()
+        self.poll_sock.listen(1)
         try:
-            print("Hello, World!")
             while 1:
-                conn = poll_sock.server.accept()
+                conn = self.poll_sock.accept()
                 c = Client(*conn)
                 c.start()
                 threads.append(c)
