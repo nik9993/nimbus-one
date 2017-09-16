@@ -9,7 +9,7 @@ import threading
 
 class Client(threading.Thread):
     """The Thread that initiates once a client connects to the server"""
-    def __init__(self,(conn, address):
+    def __init__(self, conn, address):
         threading.Thread.__init__(self)
         self.client_conn = conn
         self.address = address
@@ -19,7 +19,7 @@ class Client(threading.Thread):
         
     def run(self):
         while running:
-			if self.connected == 1:
+             if self.connected == 1:
 				try:
 					data =  self.client_conn.recv(self.size);
 #				self.client_arg_parcer(data);
