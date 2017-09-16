@@ -6,6 +6,7 @@
 #*           all of the discovery packets from the clients
 #*****
 from clientthread import Client
+from libs.common import *
 import threading
 import socket
 
@@ -15,26 +16,27 @@ class PollingServer(threading.Thread):
     """This Thread is the Main Polling Thread of the Server"""
     def __init__(self, port):
         threading.Thread.__init__(self)
-        self.portNumber = port
-    
+        self.port_number = port
+        self.host = ''
+
     def open_socket(self):
         """Function called once a clients connects to the host on correct socket."""
         try:
             self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.server.bind((self.host, self.port))
+            self.server.bind((self.host, self.port_number))
             self.server.listen(5)
             print("Polling Server Listening for connection...")
         except socket.error:# as (value, message):
             if self.server:
                 self.server.close()
-            print("Could not open Server Socket: " + message)
+            print("Could not open Server Socket.")
             print("Please try again")
             sys.exit(1)
             return
 
     def run(self):
         poll_sock = self.open_socket()
-        poll_sock.bind((host, port))
+        poll_sock.bind((host, port_number))
     
         poll_sock.listen(1)
         try:
