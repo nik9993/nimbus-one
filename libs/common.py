@@ -1,3 +1,5 @@
+import sys 
+
 message_keys = {'server_key' : """*F)J@NcRfUjXn2r5u8x/A?D(G+KaPdSg""",
 		'client_key' : """z$C&E)H@McQfTjWnZr4u7x!A$D*G-JaN""",
 		  'user_key' : """6v9y$B&E(H+MbQeThWmZq4t7w!z*C*F-""",
