@@ -43,8 +43,10 @@
 from pollingserverthread import PollingServer
 import threading
 
+
 PROG_NAME_V = "Nimbus One Server v0.01"
 PROG_NAME   = "Nimbus One Server"
+
 
 ##################################################################
 #                     MAIN Program Flow                          #
