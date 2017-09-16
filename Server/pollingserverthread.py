@@ -23,20 +23,20 @@ class PollingServer(threading.Thread):
     def open_socket(self, sock):
         """Function called once a clients connects to the host on correct socket."""
         try:
-            self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            self.sock.bind((self.host, self.port_number))
-            self.sock.listen(5)
+            sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.bind((self.host, self.port_number))
+            sock.listen(5)
             print("Polling Server Listening for connection...")
         except socket.error as err:
-            if self.sock:
-                self.poll.close()
+            if sock:
+                sock.close()
             print("Could not open Server Socket because of error: " + str(err))
             print("Please try again")
             sys.exit(1)
-        return
+        return sock
 
     def run(self):
-        self.open_socket(self.poll_sock)
+        self.poll_sock = self.open_socket(self.poll_sock)
         try:
             while 1:
                 conn = self.poll_sock.accept()
