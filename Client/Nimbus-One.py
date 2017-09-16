@@ -39,10 +39,15 @@
 #* 2. Double double quotes will be used for string that are used for interpolation or that are natural language messages.
 #* 3. Triple double quotes are for docstrings and raw string literals.
 #*****
+from libs.common import *
+import socket
 
 PROG_NAME_V = "Nimbus One Client v0.01"
 PROG_NAME   = "Nimbus One Client"
-
+size = 4096
+host = '127.0.0.1'
+port = 5050
+ 
 ##################################################################
 #                         MAIN Thread                            #
 ##################################################################
@@ -51,3 +56,18 @@ PROG_NAME   = "Nimbus One Client"
 #*
 #*****
 
+         
+client_socket = socket.socket()
+client_socket.connect((host,port))
+         
+message = input(" -> ")
+         
+try:
+    client_socket.send(message.encode())
+    data = client_socket.recv(size).decode()
+             
+    print ('Received from server: ' + data)
+
+except Exception as err: 
+    print("Client socket fail due to error: " + str(err))
+client_socket.close()
