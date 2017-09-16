@@ -5,6 +5,8 @@
 #* Purpose: This is the polling server thread that will recieve
 #*           all of the discovery packets from the clients
 #*****
+from clientthread import Client
+import threading
 
 class PollingServer(threading.Thread):
     """This Thread is the Main Polling Thread of the Server"""

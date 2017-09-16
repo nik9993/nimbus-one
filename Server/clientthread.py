@@ -5,6 +5,7 @@
 #* Purpose: This thread will be created everytime a new client
 #*           send a discovery packet to the polling server
 #*****
+import threading
 
 class Client(threading.Thread):
     """The Thread that initiates once a client connects to the server"""
