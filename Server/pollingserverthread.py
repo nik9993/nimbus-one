@@ -24,6 +24,7 @@ class PollingServer(threading.Thread):
         """Function called once a clients connects to the host on correct socket."""
         try:
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+            sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
             sock.bind((self.host, self.port_number))
             sock.listen(5)
             print("Polling Server Listening for connection...")
